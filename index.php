@@ -15,6 +15,7 @@ require_once('menu.php');
 <body>
   <div class="menu-wrapper container">
     <h1 class="logo">Café duex magots</h1>
+    <!-- 商品数（Menuクラスの$count）を表示 -->
     <h3>メニュー<?php echo Menu::getCount() ?>品</h3>
     <form method="post" action="confirm.php">
       <div class="menu-items">
@@ -26,9 +27,11 @@ require_once('menu.php');
                 <?php echo $menu->getName() ?>
               </a>
             </h3>
+            <!-- $menuがdrinkクラスならばtypeを取得する -->
             <?php if ($menu instanceof Drink): ?>
               <p class="menu-item-type"><?php echo $menu->getType() ?></p>
             <?php else: ?>
+            <!-- $menuがdrinkクラスでないならspiciness分だけ唐辛子を表示する。クラスが増えた場合は注意 -->
               <?php for ($i=0; $i<$menu->getSpiciness(); $i++): ?>
                 <img src="images/chilli.png" class='icon-spiciness'>
               <?php endfor ?>

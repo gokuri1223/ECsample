@@ -4,6 +4,7 @@ require_once('food.php');
 require_once('review.php');
 require_once('user.php');
 
+// (name, price, img, type/spiciness)
 $juice = new Drink('JUICE',   600, 'images/juice.png', 'アイス');
 $coffee = new Drink('COFFEE', 500, 'images/coffee.png', 'ホット');
 $curry = new Food('CURRY',    900, 'images/curry.png', 3);

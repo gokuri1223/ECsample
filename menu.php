@@ -1,9 +1,12 @@
 <?php
 class Menu {
+  // 子クラスからオーバーライドを許可するためprotectedにしている
   protected $name;
   protected $price;
   protected $image;
+  // $orederCountはPOSTでユーザーデータを受け取るだけなのでprivateにしている
   private $orderCount = 0;
+  // 商品の数を定義。インスタンスでなくクラスが持つプロパティのためstaticにしている
   protected static $count = 0;
   
   public function __construct($name, $price, $image) {
@@ -11,10 +14,6 @@ class Menu {
     $this->price = $price;
     $this->image = $image;
     self::$count++;
-  }
-  
-  public function hello() {
-    echo '私は'.$this->name.'です';
   }
   
   public function getName() {
